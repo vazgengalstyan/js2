@@ -5,3 +5,4 @@ let sayHi = (name) => {
 }
 
 sayHi('world');
+sayHi('John');
