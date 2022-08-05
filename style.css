@@ -1,0 +1,18 @@
+.block {
+    color: blanchedalmond;
+    border: 2px solid grey;
+    background-color: rgb(255, 255, 255);
+    width: 95%;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.main_block {
+    display: flex;  
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: column;
+   background-color: black;
+   width: 150px;
+   border-radius: 10px;
+};
