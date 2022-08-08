@@ -1,57 +1,36 @@
-
-
-
-let elem = document.querySelectorAll('a')
-let arr = [elem];
-function getLink(arr){
-	for(let i = 0;i < elem.length; i++){
-		if(i%2  !==0){
-			elem[i].style.color = 'red'
-		}
-	}
+let data = {
+    "Рыбы":{
+        "форелъ":{},
+        "лососъ":{}
+    },
+    "Деревя":{
+        "Огромные":{
+            "секвоя":{},
+            "дуб":{}
+        },
+        "Цветковые":{
+            "яблоня":{},
+            "магнолия":{}
+        }
+    }
 }
-getLink()
 
+function getList(data){
+    let ul = document.createElement("ul");
 
+    for(let  key in obj){
+        let li = document.createElement("li");
+        li.innerText = key;
 
+        let list = getList(obj[key]);
+        li.append(list);
+        ul.append(li);
+        list.style.color = "red"
 
-let array = []
-function getHref(elem){
-    let array = []
-	for(let i = 0;i<elem.length;i++){
-    arr.push(elem[i].getAtribute('href'))
-}
-return array
-}
-console.log(arr)
+    }
+    return ul;
 
-
-
-function getAtribut(elem){
-    
-	for(let i = 0;i<elem.length;i++){
-    elem[i].setAttribute("test","Hy")
-	console.log(elem[i])
-}
 
 }
 
-
-getAtribut(elem)
-
-
-function dell(elem){
-    
-	for(let i = 0;i<elem.length;i++){
-   if(i%2 !==0){
-	elem[i].removeAttribute('href')
-}
-     console.log(elem[i])
-	}
-
-
-}
-dell(elem)
-
-
-getAtribut(elem)
+document.body.prepend(getList(data));
