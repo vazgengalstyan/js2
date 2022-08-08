@@ -15,6 +15,24 @@ let data = {
     }
 }
 
+/*let data = {
+    Fish: {
+      trout: {},
+      salmon: {}
+    },
+  
+    Tree: {
+      Huge: {
+        sequoia: {},
+        oak: {}
+      },
+      Flowering: {
+        "apple tree": {},
+        magnolia: {}
+      }
+    }
+  };*/
+
 function getList(data){
     let ul = document.createElement("ul");
 
