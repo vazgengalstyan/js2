@@ -35,7 +35,27 @@ myFunc(container,data);
 
 
 
+let array = [
+    {element: 'p', content: 'test text', id: 1},
+    {element: 'div', class: 'block', id: 2},
+    {element: 'input', value: 'test'}
+];
 
+let getElements = (arr) => {
+    for (let item of arr) {
+        let element = document.createElement(item.element);
+        if (item.content) {
+            element.innerText = item.content;
+        }
+        for (let key in item) {
+            if (key === 'element' || key === 'content') {
+                continue;
+            } else {
+                element.setAttribute(key, item[key]);
+            }
+        }
+        document.body.append(element);
+    }
+}
 
-
-
+getElements(array);
