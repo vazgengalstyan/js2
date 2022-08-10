@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Git</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div id="container">
+
+    <div id="animation_div">
 
     </div>
+    <div id="container">
+        <form action="#" name="calc_form">
+            <label for="first_input">Enter first number</label>
+            <input type='number' id="first_input">
+            <label for="second_input">Enter operator</label>
+            <input type='text' id="second_input">
+            <label for="third_input">Enter second number</label>
+            <input type='number' id="third_input">
+            <button onclick="calculateNumber()">Result</button>
+        </form>
+    </div>
+
 <script src="./script.js"></script>
 </body>
 </html>
