@@ -1,51 +1,61 @@
+//տնային աշխատանք 2 կալկուլյատորի ստեղծում
 
-//1.js-ում ստանալ հղումները և ամեն երկրորդի գույնը դարձել կարմիր։
+document.write ( "<br>");
+document.write ( "<br>");
+let input1 = document.createElement('input');
+document.body.append(input1);
+input1.id = "input1"
+input1.value = "enter a number like - 1234"
+document.write ( "<br>");
+document.write ( "<br>");
+let input2 = document.createElement('input');
+document.body.append(input2);
+input2.id = "input2"
+input2.value = "enter only operators + - * /"
+document.write ( "<br>");
+document.write ( "<br>");
+let input3 = document.createElement('input');
+document.body.append(input3);
+input3.id = "input3"
+input3.value = "enter a number like - 1234"
+document.write ( "<br>");
+document.write ( "<br>");
+let button = document.createElement('button');
+document.body.append(button);
+button.id = "submit";
+button.innerHTML = "=";
+document.write ( "<br>");
+let p = document.createElement('p')
+document.body.append(p);
+p.id = "p";
 
-
-let elem = document.getElementsByTagName('a');
-let arr = [];
-
-function start() {
-	for (let i = 0; i < elem.length; i++) {
- 			elem[i].style.color = 'red'
-            arr.push(elem[i].href);
-	}
-    
- }  
-
-  start();
-//2.հղումներից ստանալ href-ները և լցնել մասիվի մեջ։  (մասիվը տպել):
-  console.log(arr);
-
-  
-//3.հղումներին ավելացնել ոչ ստանդարտ attribute։ Օրինակ test attribute, ինչ-որ value-ով։
-
-let elements = document.querySelector('.test_1');
-
-elements.setAttribute('test', 'hi');
-console.log(elements);
-console.log(elements.getAttribute('test'));
-
-
-//4. հղումներին ավելացնել ստանդարտ target attribute _blank value-ով։
-
-
-
-let target = Array.from(document.querySelectorAll("a"))
-
-for (i in target){
-    target[i].setAttribute("target", "blank")
-}
-console.log(target);
-
-//5.ջնջել href attribute-ը ամեն երկրորդ հղումից։
-
-let all_links = document.getElementsByTagName("a");
-function start1() {
-for(let i=0; i<all_links.length; i++){
-    all_links[i].removeAttribute("href");
+document.getElementById('submit').onclick = func = () =>{
    
-}
-}
-start1();
-console.log(all_links);
+	let operator = input2.value;
+	let num1 = input1.value;
+	let num2 = input3.value;
+ 
+
+		let result;
+	if(!(Number(num1)) || !(Number(num2))){
+		alert('please enter a number')
+	}else if(operator === '+'){
+        button.textContent = 'Processing…'
+		result = (Number(num1) + Number(num2))
+	}else if(operator === '-'){
+        button.textContent = 'Processing…'
+	    result = (Number(num1) - Number(num2))
+	}else if(operator === '*'){
+        button.textContent = 'Processing…'
+	    result = (Number(num1) * Number(num2))
+	}else if(operator === '/'){
+        button.textContent = 'Processing…'
+	    result = (Number(num1) / Number(num2))
+	}else{
+		alert('not the same operator');
+	}
+	
+	p.innerHTML = `the result of calculaiting is ${result}`;
+};
+
+
