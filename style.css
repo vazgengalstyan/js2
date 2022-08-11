@@ -5,13 +5,15 @@ input {
 form {
     margin: 20px;
 }
-
-/*#animation_div {*/
-/*    width: 150px;*/
-/*    height: 150px;*/
-/*    //border-radius: 50%;*/
-/*    background-color: dodgerblue;*/
-/*    position: absolute;*/
-/*    left: 0;*/
-/*    top: 0;*/
-/*}*/
+body {
+    overflow: hidden;
+}
+#animation_div {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: dodgerblue;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
