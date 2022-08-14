@@ -1,19 +1,33 @@
-input {
-    display: block;
-    margin-bottom: 20px;
+#first_container {
+    width: 300px;
+    height: 150px;
+    border: 2px solid black;
+    position: absolute;
+    /*top: 0;*/
+    /*bottom: 0;*/
+    //transition: 0.5s;
+
+}
+#third_container {
+    width: 700px;
+    height: 500px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    background-color: gray;
+}
+#third_small_container {
+    width: 100px;
+    height: 100px;
+    background-color: dodgerblue;
+    border-radius: 15px;
 }
 form {
     margin: 20px;
 }
-body {
-    overflow: hidden;
+input {
+    display:block;
+    margin-bottom: 15px;
 }
-#animation_div {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: dodgerblue;
-    position: absolute;
-    left: 0;
-    top: 0;
+input[type='radio'] {
+    display: inline-block;
 }

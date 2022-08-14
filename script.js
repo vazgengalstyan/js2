@@ -1,67 +1,65 @@
-// let calculateNumber = () => {
-//     let firstInput = Number(document.querySelector('#first_input').value);
-//     let secondInput = document.querySelector('#second_input').value;
-//     let thirdInput = Number(document.querySelector('#third_input').value);
-//     let result;
-//     switch(secondInput) {
-//         case '+':
-//            result = firstInput + thirdInput;
-//            break;
-//         case '-':
-//             result = firstInput - thirdInput;
-//             break;
-//         case '*':
-//             result = firstInput * thirdInput;
-//             break;
-//         case '/':
-//             result = firstInput / thirdInput;
-//             if(thirdInput === 0) {
-//                 alert('Is not divitible by 0');
-//                 return null;
-//             }
-//             break;
-//         case '%':
-//             result = firstInput % thirdInput;
-//             break;
-//         default:
-//             alert('Please enter only +, -, /, * operators');
-//             return null;
-//     }
-//     if(result !== null) {
-//         alert(firstInput + secondInput + thirdInput + '=' + result);
-//     }
+//1.mknik@ sharjeluc element@ het@ petq e sharjvi.
+let firstContainer = document.querySelector('#first_container');
+
+// let myFunc1 = (e) => {
+//     firstContainer.style.top = e.clientY + 'px';
+//     firstContainer.style.left = e.clientX + 'px';
 // }
+// document.documentElement.addEventListener('mousemove',myFunc1);
 
-let elem = document.getElementById('animation_div');
-let positionYMax = (window.innerHeight - elem.clientHeight) + 'px';
-let positionXMax = (window.innerWidth - elem.clientWidth) + 'px';
-let positionXMin = '0px';
-let positionYMin = '0px';
-let reverse_y = true;
-let reverse_x = true;
+//2.mknik@ elementi vra bereluc petq e element@ haytnvi ekrani patahakan dirqum
+// let myFunc2 = () => {
+//     firstContainer.style.top =(Math.round(Math.random() * (window.innerHeight - firstContainer.offsetHeight))) + 'px';
+//     firstContainer.style.left = (Math.round(Math.random() * (window.innerWidth - firstContainer.offsetWidth))) + 'px';
+// }
+//
+// firstContainer.addEventListener('mouseover', myFunc2);
 
-let myFunc = () => {
-    if(reverse_x) {
-        elem.style.left =`${elem.offsetLeft + 100}px`;
-    } else {
-        elem.style.left =`${elem.offsetLeft - 100}px`;
-    }
-    if(reverse_y) {
-        elem.style.top =`${elem.offsetTop + 100}px`;
-    } else {
-        elem.style.top =`${elem.offsetTop - 100}px`;
-    }
+//3.elementi vra sexmeluc petq e element@ stana random guyn
 
-    if(elem.style.top > positionYMax || elem.style.top === positionYMin) {
-        reverse_y = !reverse_y;
-    }
-    if(elem.style.left > positionXMax || elem.style.left === positionXMin) {
-        reverse_x = !reverse_x;
-    }
+// let thirdContainer = document.querySelector('#third_small_container');
+//
+// let changeColor = () => {
+//     thirdContainer.style.backgroundColor = `#${Math.round(Math.random() * 16777215).toString(16)}`;
+// }
+//
+// thirdContainer.addEventListener('click',changeColor);
 
+//4.mknikov bdi krananq element@ brnenq u texasharjenq
+
+// let myFunc3 = (e) => {
+//     e.preventDefault();
+//     firstContainer.style.top = e.clientY + 'px';
+//     firstContainer.style.left = e.clientX + 'px';
+// }
+//
+// document.addEventListener('dragover',myFunc3);
+
+//5.ekrani cankacac tex click eneluc element@ bdi haytnvi @dtex
+//
+// let myFunc4 = (e) => {
+//     firstContainer.style.top = e.clientY + 'px';
+//     firstContainer.style.left = e.clientX + 'px';
+// }
+// document.documentElement.addEventListener('click',myFunc4);
+
+//6.stexcel html-um forma (anun, axganun, email, tariq, ser, hasce) nshvac dashterov yev submit sexmeluc tpeq formai
+// arjeqner@ console-um obyekti tesqov
+
+let form = document.querySelector('#main_form');
+let inputArray = document.querySelectorAll('input');
+
+let getValueInputs = (e) => {
+    e.preventDefault();
+    let obj = {};
+    for(let item of inputArray) {
+        if(item.type === 'submit') {
+            continue;
+        };
+        obj[item.name] = item.value;
+    }
+    console.log(obj);
 }
-
-setInterval(myFunc,500);
-
+form.addEventListener('submit',getValueInputs);
 
 
