@@ -98,12 +98,3 @@ elem.addEventListener("mousedown", function (event) {
         console.log(user);
     };
   
-
-    //7.//mknikov brnel berel elementy 
-    let ex = document.querySelector('#example');
-
-    document.addEventListener('mousemove', (event)=> {
-        ex.style.left = event.clientX + 'px'
-        ex.style.top = event.clientY + 'px'
-
-    });
