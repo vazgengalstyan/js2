@@ -1,21 +1,46 @@
 
-#block{
-	left:0;
-	bottom:0;
-	right:0;
-	top:0;
-	width:100px;
-	height:100px;
-	background:red;
-position:absolute;
 
+.contenier{
+	width:800px;
+	height:530px;
+	border:1px solid #A3A296;
 	
 }
+.header{
+width:800px;
+	height:50px;
+	background-color:#A3A296;
+}
 
-#container{
-	
+.block{
 	width:800px;
-	height:800px;
-	border:1px solid red;
-	position:absolute;
+	height:530px;
+	border:1px solid black;
+	border-radius:10px;
+	padding:10px;
+	display:flex;
+	justify-content:center;
+}
+
+#pogination{
+	padding:10px;
+	text-align:center;
+}
+
+.list{
+	width:750px;
+	height:400px;
+	border:1px solid #536872;
+	padding:10px;
+	margin:10px;
+	
+}
+#lists td{
+	
+	
+	border:1px solid black;
+}
+th{
+	padding:10px;
+	border:1px solid black;
 }
