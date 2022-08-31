@@ -1,63 +1,64 @@
-let arr = [];
-
-async function getPosts() {
-    let response = await fetch('https://restcountries.com/v3.1/all', {
-        method: 'GET'
-    }).then(response => response.json());
-    arr = await response.filter(item => item.continents.includes('Asia'));
+let saveStorage = () => {
+    let value = document.querySelector('#input_email').value;
+    localStorage.setItem('email', value);
+    document.getElementById('first_container').style.display = 'none';
+    document.querySelector('#email_address').innerHTML = `Email: ${value}`;
+    document.getElementById('second_container').style.display = 'flex';
 }
-getPosts();
 
-let table = document.querySelector('table');
-let ul = document.querySelector('ul');
+let removeStorage = () => {
+    localStorage.removeItem('email');
+    document.querySelector('#input_email').value = '';
+    document.querySelector('#input_password').value = '';
+    document.getElementById('second_container').style.display = 'none';
+    document.getElementById('first_container').style.display = 'block';
+}
+let column1 = document.querySelector('#column_1');
+let column2 = document.querySelector('#column_2');
+let column3 = document.querySelector('#column_3');
 
+let takeElement = (elem)=>{
+    let parent = elem.parentElement;
+    let moveElement = (event)=>{
+        elem.style.position = 'absolute';
+        elem.style.left = `${event.pageX}px`;
+        elem.style.top = `${event.pageY}px`;
+    }
+    let handleMouseup = (event)=>{
+        let positionElem = checkElemPosition(event);
+        elem.style.position = 'static';
+        //divերը մեծից փոքր իրար վրա դնել չի ստացվում
+        if(!(elem.previousElementSibling) && (positionElem.children.length === 0 || (positionElem.children.length !== 0
+            && parseFloat(getComputedStyle(elem).width < parseFloat(getComputedStyle(positionElem.firstElementChild).width))))) {
+            positionElem.prepend(elem)
+        };
 
-let pageCount = 10;
-let count;
-let items = [];
-
-setTimeout(() => {
-    count = Math.ceil(arr.length / pageCount);
-    for(let i = 1; i <= count; i++) {
-        let li = document.createElement('li');
-        ul.append(li);
-        li.innerText = i;
-        items.push(li);
+        document.body.removeEventListener('mousemove', moveElement);
+        document.body.removeEventListener('mouseup', handleMouseup);
     }
 
-    for(let item of items) {
-        item.addEventListener('click', function() {
-            let active = document.querySelector('li.active');
-            if(active) {
-                active.classList.remove('active');
-            }
-            this.classList.add('active');
-            let pageNum = +this.innerText;
-            let start = (pageNum - 1) * pageCount;
-            let end = start + pageCount;
+    let checkElemPosition = (event)=>{
+        let centerX = event.pageX;
+        let centerY = event.pageY;
 
-            let posts = arr.slice(start,end);
-            table.innerHTML = '';
-            for(let post of posts) {
-                let tr;
-                tr = document.createElement('tr');
-                table.append(tr);
-                let td;
-                td = document.createElement('td');
-                td.innerText = post.continents;
-                tr.append(td);
-
-                td = document.createElement('td');
-                td.innerText = post.capital;
-                tr.append(td)
-
-                td = document.createElement('td');
-                td.innerText = post.timezones;
-                tr.append(td);
-            }
-        })
+        if(centerX >= column1.offsetLeft && centerX <= column1.offsetLeft + column1.offsetWidth
+            && centerY >= column1.offsetTop && centerY <= column1.offsetTop + column1.offsetHeight
+        ){
+            return column1
+        }
+        if(centerX >= column2.offsetLeft && centerX <= column2.offsetLeft + column2.offsetWidth
+            && centerY >= column2.offsetTop && centerY <= column2.offsetTop + column2.offsetHeight
+        ){
+            return column2
+        }
+        if(centerX >= column3.offsetLeft && centerX <= column3.offsetLeft + column3.offsetWidth
+            && centerY >= column3.offsetTop && centerY <= column3.offsetTop + column3.offsetHeight
+        ){
+            return column3
+        }
+        return parent;
     }
-},1500)
 
-
-
+    document.body.addEventListener('mousemove', moveElement);
+    document.body.addEventListener('mouseup', handleMouseup);
+}
