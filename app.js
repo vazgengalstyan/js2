@@ -1,28 +1,62 @@
-let step = "x";
+let elem = document.querySelector('#div-id');
+elem.addEventListener('hello',(event)=>{
+  alert(`hello of ${event.target.tagName}`);
+});
 
-let clickItem = (elem) => {
-  if (!elem.innerText){
-    elem.innerText = step
-    
-    step = step === "x" ? "0" : "x"
-  }
-  if (step === "0"){
-    elem.style.color = "red"
-  } 
-  if (step === "x"){
-    elem.style.color = "blue"
-  } 
+let event = new Event('hello',{bubles:true});
+
+setTimeout(()=>{
+  elem.dispatchEvent(event)
+}, 2000);
+
+
+let res = 0
+up.onclick = function(){
+  res++;
+  number.innerText = res
+}
+
+down.onclick = function(){
+  res--;
+  number.innerText = res
 };
 
+let elem1 = document.querySelector('#input');
 
-  let getContainer = document.querySelector('.container');
-  console.log(getContainer);
-  let gameInitial = getContainer.innerHTML;
-  console.log(gameInitial);
+// elem1.addEventListener('focus', ()=>{
+//   elem1.style.outline = "1px solid red"
+// });
 
-  let startAgain = ()=>{
-    getContainer.innerHTML = gameInitial;
-    step = "x"
-  }
+// elem1.addEventListener('blur', ()=>{
+//   elem1.style.outline = "none"
+// });
 
-console.log(startAgain())
+
+///amen nshvac varkyany mek kdne u khane focusic inkn iran 
+
+// setTimeout(()=>{
+//   elem.focus();
+// },1000);
+
+// setTimeout(()=>{
+//   elem.blur();
+// },3000);
+
+// elem1.addEventListener('focus', ()=>{
+//   console.log('focus');
+// });
+
+// elem1.addEventListener('blur', ()=>{
+//   console.log('blur');
+
+// });
+
+///misht focusi mej kpahe 
+// elem1.focus();
+
+// elem1.addEventListener('blur',()=>{
+//   elem1.focus();
+// })
+
+
+

@@ -8,19 +8,20 @@
     <title>Document</title>
 </head>
 <body>
-    <div  id="div-id" class="container">
-        <p id='number'>0</p>
-        <button id="up">up</button>
-        <button id="down">down</button>
+    <div>
+        <div id="list"></div>
+        <div id="pagination" class="pagination-container"></div>
     </div>
-
-    <br>
-    <br>
-    <input id="input" type="email" id="input">
+        <select onchange="changePageSize(this)">
+            <option>10</option>
+            <option>25</option>
+            <option>50</option>
+            <option>100</option>
+        </select>
 
     <script src="./app.js" type="application/javascript">	
 
     </script>
    
 </body>
-</html>
+</html> 

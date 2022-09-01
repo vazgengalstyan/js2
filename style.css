@@ -1,23 +1,11 @@
-.column {
-   float: left;
-   width: 80px;
-   height: 80px;
-   padding: 10px;
-   border: 2px solid;
-   font-size: 50px;
-   text-align: center;
- }
-
-.row {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   justify-content: flex-start;
+.container {
+   width: 200px;
+   height: 200px;
+   background-color: burlywood;
+   border: 1px solid;
 }
 
-#refresh {
-   width: 80px;
-   height: 20px;
-   background-color: gray;
-   border: 1px solid;
+#number {
+   font-size: 35px;
+   
 }
